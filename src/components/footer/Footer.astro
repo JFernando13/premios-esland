@@ -1,0 +1,121 @@
+---
+import Logo from "~/components/icons/Logo.astro";
+import TwitterIcon from "~/components/icons/TwitterIcon.astro";
+import InstagramIcon from "~/components/icons/InstagramIcon.astro";
+import RedditIcon from "~/components/icons/RedditIcon.astro";
+import GithubIcon from "~/components/icons/GithubIcon.astro";
+---
+
+<footer class="bg-black/40">
+  <div class="mx-auto w-full max-w-screen-xl p-4 px-6 py-6 lg:py-8">
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 flex flex-col md:mb-0">
+        <a
+          href="https://premiosesland.com/"
+          class="-mt-14 flex items-center justify-center"
+        >
+          <Logo class="h-auto w-24" />
+        </a>
+        <div class="mt-6 flex justify-center gap-x-4">
+          <a href="#" class="text-white hover:text-primary duration-300">
+            <TwitterIcon />
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a href="#" class="text-white hover:text-primary duration-300">
+            <InstagramIcon />
+            <span class="sr-only">Instagram</span>
+          </a>
+          <a href="#" class="text-white hover:text-primary duration-300">
+            <RedditIcon />
+            <span class="sr-only">Reddit</span>
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold uppercase text-white">Legal</h2>
+          <ul class="flex flex-col gap-2 font-medium text-gray-400">
+            <li>
+              <a
+                href="/aviso-legal"
+                class="hover:underline hover:text-primary duration-300"
+                >Aviso legal</a
+              >
+            </li>
+            <li>
+              <a
+                href="/privacidad"
+                class="hover:underline hover:text-primary duration-300"
+                >Privacidad</a
+              >
+            </li>
+            <li>
+              <a
+                href="/cookies"
+                class="hover:underline hover:text-primary duration-300"
+              >
+                cookies
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold uppercase text-white">
+            mapa web
+          </h2>
+          <ul class="flex flex-col gap-2 font-medium text-gray-400">
+            <li>
+              <a
+                href="/"
+                class="hover:underline hover:text-primary duration-300"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="/info"
+                class="hover:underline hover:text-primary duration-300">Info</a
+              >
+            </li>
+            <li>
+              <a
+                href="/archivo"
+                class="hover:underline hover:text-primary duration-300"
+                >Archivo</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-0 text-sm font-semibold uppercase text-white">
+            Producido por
+          </h2>
+          <a
+            class="hover:scale-110 transition block"
+            href="https://www.ubiq.ad/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img loading="lazy" src="/ubiq-logo.svg" alt="Logo Ubiq" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-6 border-white/10 sm:mx-auto lg:my-8" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-400 sm:text-center"
+        >© ESLAND 2021 - 2024 Todos los derechos reservados. - Esta no es la
+        web oficial, desarrollada por @jfernando para fines divertidos
+      </span>
+      <div class="mt-4 flex sm:mt-0 sm:justify-center">
+        <a
+          href="https://github.com/jfernando13"
+          class="text-gray-500 hover:text-white ms-5 duration-300"
+        >
+          <GithubIcon />
+          <span class="sr-only">GitHub account</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

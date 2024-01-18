@@ -1,1 +1,39 @@
-<header id="header-nav" class="fixed top-0 w-full px-6 py-4 z-50"></header>
+---
+import Logo from "../icons/Logo.astro";
+---
+
+<header class="fixed top-0 w-full px-6 py-4 z-50 flex items-center">
+  <Logo class="w-10 flex-1 h-10" />
+
+  <nav class="flex gap-8 text-2xl">
+    <a href="/">Vota</a>
+    <a href="/">Info</a>
+    <a href="/">Archivo</a>
+  </nav>
+
+  <div class="flex-1 flex justify-center">
+    <a
+      href=""
+      class="text-center font-bold tracking-[.15em] no-underline py-2 px-4 border border-solid border-white rounded-full w-max uppercase"
+      >Entra en la isla ESLAND</a
+    >
+  </div>
+</header>
+
+<style>
+  header {
+    animation: blur linear both;
+    animation-timeline: scroll();
+    animation-range: 0 500px;
+  }
+
+  @keyframes blur {
+    to {
+      box-shadow:
+        0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+        0px 0px 0 1px rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+  }
+</style>
