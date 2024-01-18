@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+  url: string;
+}
+
+const { title, subtitle, url } = Astro.props;
+---
+
+<article
+  class=`${Astro.props.class} col-span-10 flex flex-col justify-end rounded-xl
+  backdrop-blur-md
+  border border-black/10
+  shadow-inner shadow-white/10
+  overflow-hidden group`
+>
+  <!-- Overlay -->
+  <div
+    class="absolute h-full w-full
+    bg-gradient-to-b from-transparent from-30% via-[#151836]/80 to-[#151836]/90"
+  >
+  </div>
+  <!-- Image container -->
+  <div
+    class="transition-scale absolute -z-10 h-full w-full bg-blue-950 bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-700 ease-in-out group-hover:scale-110 background-img"
+    style=`background-image: url('${url}')`
+  >
+  </div>
+
+  <!-- Content -->
+  <hgroup class="p-8 flex flex-col gap-2 z-20">
+    <div>
+      <h2 class="text-balance text-3xl font-semibold uppercase text-white">
+        {title}
+      </h2>
+      <h3 class="text-3xl font-semibold text-sky-200/80">{subtitle}</h3>
+    </div>
+
+    <slot name="content" />
+  </hgroup>
+</article>

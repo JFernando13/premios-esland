@@ -1,0 +1,102 @@
+---
+import BentoItem from "./BentoItem.astro";
+---
+
+<section
+  class="section max-w-[1400px] grid grid-cols-10 auto-rows-[30rem] gap-4"
+>
+  <BentoItem
+    url="/mountain.webp"
+    title="andorra: el cénit de los premios esland"
+    class="lg:col-span-4"
+  >
+    <p slot="content">
+      Una nueva edición <strong>cargada de novedades</strong> y contenido, que empezará
+      varias semanas antes de la ansiada gala. <strong>
+        Directos especiales, colaboraciones, conciertos y mucho más</strong
+      > en lo que será una auténtica fiesta dedicada a la creación de contenido.
+    </p>
+  </BentoItem>
+  <BentoItem
+    title="la gala"
+    class="lg:col-span-6"
+    subtitle="17 de febrero de 2024"
+    url="/grefg.webp"
+  >
+    <p slot="content">
+      Una gala de premios llena de <strong>contenido de primer nivel</strong> y <strong
+        >muchas sorpresas</strong
+      >, en la que descubrirán los ganadores de esta tercera edición de los
+      Premios ESLAND.
+    </p>
+  </BentoItem>
+  <BentoItem
+    title="la alfombra blanca"
+    class="lg:col-span-6"
+    subtitle="16 de febrero de 2024"
+    url="/pistas.webp"
+  >
+    <p slot="content">
+      Este año, el momento de la alfombra azul será sustituido y mejorado,
+      gracias a los increíbles paisajes andorranos, por una <strong>
+        alfombra blanca en plena nieve</strong
+      >, situada en las <strong>pistas de esquí de Andorra</strong>.
+    </p>
+  </BentoItem>
+  <BentoItem
+    title="disfruta del reddit de la comunidad"
+    class="lg:col-span-4"
+    url="/laptop.webp"
+  >
+    <p slot="content">
+      Este año, el reddit no formará parte de las votaciones de los premios,
+      pero sí que <strong>formará parte de la comunidad</strong>. El subreddit
+      oficial de los Premios ESLAND está abierto para ti. Comparte tus clips,
+      opiniones e <strong>interactúa con toda la comunidad</strong> del streaming
+      hispanohablante.
+    </p>
+  </BentoItem>
+</section>
+
+<style>
+  p {
+    @apply max-w-xl text-base md:text-lg;
+  }
+</style>
+
+<!-- <script>
+  document.addEventListener("astro:page-load", () => {
+    console.log("intersecition");
+
+    const backgrounds = document.querySelectorAll(
+      ".background",
+    ) as NodeListOf<HTMLElement>;
+
+    if (window.IntersectionObserver == null) {
+      backgrounds.forEach((bkg) => {
+        bkg.style.backgroundImage = "url('" + bkg.dataset.src + "')";
+      });
+      return;
+    }
+
+    function handleIntersection(entries: IntersectionObserverEntry[]) {
+      entries.map((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const { style, dataset } = target;
+          // Item has crossed our observation
+          // threshold - load src from data-src
+          style.backgroundImage = "url('" + dataset.src + "')";
+          // Job done for this item - no need to watch it!
+          observer.unobserve(entry.target);
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: "100px",
+    });
+
+    backgrounds.forEach((bkg) => observer.observe(bkg));
+  });
+</script> -->
