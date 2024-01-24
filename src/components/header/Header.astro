@@ -1,23 +1,26 @@
 ---
 import Logo from "../icons/Logo.astro";
+import Link from "./Link.astro";
 ---
 
-<header class="fixed top-0 w-full px-6 py-4 z-50 flex items-center">
-  <Logo class="w-10 flex-1 h-10" />
-
-  <nav class="flex gap-8 text-2xl">
-    <a href="/">Vota</a>
-    <a href="/">Info</a>
-    <a href="/">Archivo</a>
-  </nav>
-
-  <div class="flex-1 flex justify-center">
+<header
+  class="fixed top-0 w-full px-44 py-4 z-50 flex items-center justify-between gap-14"
+>
+  <a href="/">
+    <Logo class="w-12 h-12" />
+  </a>
+  <nav class="flex flex-1 items-center justify-between">
+    <div class="flex gap-8 uppercase text-xl">
+      <Link href="/vota">vota</Link>
+      <Link href="/info">info</Link>
+      <Link href="/archivo">archivo</Link>
+    </div>
     <a
       href=""
-      class="text-center font-bold tracking-[.15em] no-underline py-2 px-4 border border-solid border-white rounded-full w-max uppercase"
-      >Entra en la isla ESLAND</a
+      class="link-action text-center font-bold tracking-[.15em] no-underline py-2 px-4 border border-solid border-white rounded-full w-max uppercase text-sm"
+      >Criterios de nominación</a
     >
-  </div>
+  </nav>
 </header>
 
 <style>
@@ -25,6 +28,26 @@ import Logo from "../icons/Logo.astro";
     animation: blur linear both;
     animation-timeline: scroll();
     animation-range: 0 500px;
+  }
+
+  .link-action {
+    transition:
+      text-shadow 0.5s ease-out,
+      box-shadow 0.3s ease-out;
+  }
+
+  .link-action:hover {
+    box-shadow: 0 0 16px #fff8;
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 22px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(66, 220, 219, 0.8),
+      0 0 60px rgba(66, 220, 219, 0.8),
+      0 0 80px rgba(66, 220, 219, 0.5),
+      0 0 100px rgba(66, 220, 219, 0.5),
+      0 0 140px rgba(66, 220, 219, 0.5),
+      0 0 200px rgba(66, 220, 219, 0.5);
   }
 
   @keyframes blur {
