@@ -31,7 +31,9 @@ import GithubIcon from "~/components/icons/GithubIcon.astro";
           </a>
         </div>
       </div>
-      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
+      <div
+        class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6 place-items-center"
+      >
         <div>
           <h2 class="mb-6 text-sm font-semibold uppercase text-white">Legal</h2>
           <ul class="flex flex-col gap-2 font-medium text-gray-400">
@@ -86,7 +88,7 @@ import GithubIcon from "~/components/icons/GithubIcon.astro";
             </li>
           </ul>
         </div>
-        <div>
+        <div class="produced-by">
           <h2 class="mb-0 text-sm font-semibold uppercase text-white">
             Producido por
           </h2>
@@ -119,3 +121,11 @@ import GithubIcon from "~/components/icons/GithubIcon.astro";
     </div>
   </div>
 </footer>
+
+<style>
+  @media (width <= 640px) {
+    .produced-by {
+      @apply col-span-3;
+    }
+  }
+</style>
