@@ -3,19 +3,61 @@ import Layout from "~/layouts/Layout.astro";
 import Intro from "~/components/intro/Intro.astro";
 import Bento from "~/components/bento/Bento.astro";
 import PreFooter from "~/components/footer/PreFooter.astro";
-import Footer from "~/components/footer/Footer.astro";
-import Video from "~/components/video/Video.astro";
+import Hero from "~/components/hero/Hero.astro";
+import Logo from "~/components/icons/Logo.astro";
 ---
 
 <Layout titlePage="Premios Esland" description="Premios Esland">
-  <Video />
+  <Hero>
+    <section class="flex place-content-center place-items-center h-full w-full">
+      <hgroup class="absolute z-20 gap-8 flex flex-col items-center">
+        <h1 class="flex gap-4 text-4xl md:text-6xl lg:gap-20 lg:text-8xl">
+          <span>E</span>
+          <span>S</span>
+          <span>L</span>
+          <Logo class="h-9 md:h-[3.75rem] lg:h-24 scale-150" />
+          <span>N</span>
+          <span>D</span>
+        </h1>
+
+        <p class="text-xl lg:text-2xl text-center text-wrap px-4 pt-[18px]">
+          Premios a la Comunidad Hispanohablante de Streaming
+        </p>
+
+        <a
+          href="/vota"
+          class="w-fit lg:text-xl font-bold tracking-[.25em] no-underline px-8 py-3 border border-solid border-white rounded-xl uppercase text-blue-950 bg-white"
+          >Vota</a
+        >
+      </hgroup>
+
+      <video
+        src="/esland-intro.webm"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="w-full h-full object-cover object-top clip-path-v"
+      >
+      </video>
+    </section>
+
+    <video
+      src="/esland-intro.webm"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="object-cover blur-3xl absolute -bottom-48 -z-10 h-full w-full"
+    >
+    </video>
+  </Hero>
 
   <main>
     <Intro />
     <Bento />
     <PreFooter />
   </main>
-
 </Layout>
 
 <style></style>
