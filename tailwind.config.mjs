@@ -6,6 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        "tomaso": ["Tomaso", "sans-serif"],
         "onest": ["Onest Variable", "sans-serif"],
       },
       colors: {
