@@ -1,5 +1,261 @@
 ---
+import Hero from "~/components/hero/Hero.astro";
+import LinkToAction from "~/components/shared/LinkToAction.astro";
 import Layout from "~/layouts/Layout.astro";
+
+const kits = [
+  {
+    name: "logotipo y trofeos",
+    href: "https://premiosesland.com/ESLAND_MEDIA_KIT_2022.ra",
+    img: "/kit/logo-thropy.webp",
+  },
+  {
+    name: "fondos de pantalla",
+    href: "https://premiosesland.com/ESLAND_FONDOS.zip",
+    img: "/kit/wallpaper-esland.webp",
+  },
+  {
+    name: "nota de prensa",
+    href: "https://premiosesland.com/Nota%20Prensa-ESLAND.pdf",
+    img: "/kit/press-release.webp",
+  },
+];
 ---
 
-<Layout titlePage="Información" description="Premios Esland" />
+<Layout titlePage="Información" description="Premios Esland">
+  <Hero>
+    <section class="h-full w-full flex justify-center items-center">
+      <h1
+        class="uppercase absolute z-10 lg:text-6xl text-5xl text-center font-tomaso tracking-widest -translate-y-14"
+      >
+        los premios esland
+      </h1>
+      <img
+        src="/info-bg.webp"
+        alt="esland-info-hero"
+        class="clip-path-v h-full object-cover object-center"
+      />
+    </section>
+    <img
+      src="/info-bg.webp"
+      alt="esland-info-hero"
+      class="object-cover blur-3xl absolute -bottom-36 -z-10 h-full w-full"
+    />
+  </Hero>
+
+  <main class="section flex flex-col gap-24 max-w-[1400px]">
+    <section class="info-section" id="theater">
+      <hgroup class="flex-1" id="theater-text">
+        <h2 class="title">
+          Un reconocimiento único para creadores, creadoras y comunidades
+        </h2>
+        <p>
+          Los Premios ESLAND son una iniciativa privada promovida por el célebre
+          streamer TheGrefg y buscan apoyar y reconocer la creación de contenido
+          en el ámbito hispanohablante.
+        </p>
+        <p>
+          ESLAND es el acrónimo de ESPAÑA, LATINOAMÉRICA Y ANDORRA, tres
+          localizaciones geográficas que comparten el idioma que las une más
+          allá de cualquier frontera, ya sea física o virtual.
+        </p>
+      </hgroup>
+
+      <img
+        src="theater.webp"
+        alt="theater esland 2024"
+        class="info-img"
+        id="theater-img"
+      />
+    </section>
+    <section class="info-section" id="trophies">
+      <img
+        src="trophies.webp"
+        alt="trophies esland 2024"
+        class="info-img"
+        id="trophies-img"
+      />
+
+      <hgroup class="flex-1" id="trophies-text">
+        <h2 class="title">el premio a la creación</h2>
+        <p>
+          El trofeo que se entrega a los ganadores y ganadoras en la ceremonia
+          es <strong
+            >una representación de la letra “A” dividida en tres fragmentos</strong
+          > y ensambladas a modo de artilugio futurista sobre el que se construye
+          la narrativa del evento.
+        </p>
+        <p>
+          Un artefacto de origen desconocido que dota de <strong
+            >herramientas y habilidades para la creación.</strong
+          > Una metáfora sobre la emancipación del talento gracias a la tecnología
+          y la irrupción de los creadores de contenido en el mundo del entretenimiento.
+        </p>
+      </hgroup>
+    </section>
+
+    <footer>
+      <h2 class="title-section-kit text-center mb-16">kit de prensa</h2>
+
+      <section
+        class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8 place-items-center place-content-center"
+      >
+        {
+          kits.map((kit) => (
+            <article class="item-kit w-full">
+              <LinkToAction
+                id="btn-kit"
+                href={kit.href}
+                class="px-12 py-2"
+                text="descargar"
+              />
+              <div class="relative" id="img-container">
+                <img src={kit.img} alt="kit esland 2024" class="img-show-kit" />
+                <img src={kit.img} alt="kit esland 2024" class="img-bg-kit" />
+              </div>
+              <h3 class="title-kit">{kit.name}</h3>
+            </article>
+          ))
+        }
+      </section>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  /** Theater animation */
+  #theater-img,
+  #trophies-text > h2,
+  #trophies-text > p {
+    --entry-animation: 20px;
+    animation: entry-animation ease both;
+    animation-timeline: view();
+  }
+
+  #theater-img {
+    animation-range-start: 0;
+    animation-range-end: cover 70%;
+  }
+
+  #trophies-text > h2,
+  #trophies-text > p {
+    animation-range-start: 0;
+    animation-range-end: cover 50%;
+  }
+
+  #trophies-img,
+  #theater-text > h2,
+  #theater-text > p {
+    --entry-animation: -20px;
+    animation: entry-animation ease both;
+    animation-timeline: view();
+  }
+
+  #trophies-img {
+    animation-range-start: 0;
+    animation-range-end: contain 70%;
+  }
+
+  #theater-text > h2,
+  #theater-text > p {
+    animation-range-start: 0px;
+    animation-range-end: contain 55%;
+  }
+
+  @keyframes entry-animation {
+    0% {
+      opacity: 0;
+      transform: translate(var(--entry-animation), 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  @media (width >= 1400px) {
+    #theater-img,
+    #trophies-text > h2,
+    #trophies-text > p {
+      --entry-animation: 100px;
+    }
+
+    #trophies-img,
+    #theater-text > h2,
+    #theater-text > p {
+      --entry-animation: -100px;
+    }
+  }
+
+  @media (width > 930px) and (width <= 1350px) {
+    .item-kit:last-child {
+      grid-column: 1 / 3;
+    }
+  }
+
+  #trophies {
+    @apply flex-wrap-reverse;
+  }
+
+  .title {
+    @apply text-3xl lg:text-5xl font-semibold tracking-wide mb-4 capitalize;
+  }
+
+  .info-section {
+    @apply flex gap-10 items-center flex-wrap;
+  }
+
+  .info-img {
+    @apply object-cover rounded-md shadow-2xl shadow-white/10 md:w-1/2 aspect-[812/556];
+  }
+
+  p {
+    @apply text-xl text-pretty;
+  }
+
+  /** KIT */
+  .item-kit {
+    @apply flex flex-col-reverse items-center gap-8;
+  }
+
+  .title-section-kit {
+    @apply uppercase text-6xl font-bold;
+  }
+
+  .title-kit {
+    @apply text-2xl uppercase;
+  }
+
+  #btn-kit:hover ~ #img-container > .img-show-kit {
+    @apply scale-105;
+  }
+  #btn-kit:hover ~ #img-container > .img-bg-kit {
+    @apply opacity-40;
+  }
+
+  .link-action {
+    transition: all 0.2s;
+  }
+
+  .link-action:hover {
+    box-shadow: 0 0 16px #fff8;
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 22px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(66, 220, 219, 0.8),
+      0 0 60px rgba(66, 220, 219, 0.8),
+      0 0 80px rgba(66, 220, 219, 0.5),
+      0 0 100px rgba(66, 220, 219, 0.5),
+      0 0 140px rgba(66, 220, 219, 0.5),
+      0 0 200px rgba(66, 220, 219, 0.5);
+  }
+
+  .img-show-kit {
+    @apply aspect-video rounded-lg w-full transition-all duration-300;
+  }
+
+  .img-bg-kit {
+    @apply absolute inset-0 opacity-0 brightness-200 blur-xl aspect-video rounded-lg w-full -z-30 transition-all;
+  }
+</style>
