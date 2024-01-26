@@ -1,7 +1,58 @@
 ---
-import Logo from "../icons/Logo.astro";
+export interface Props {
+  media: "video" | "image";
+  src: string;
+}
+
+const { media, src } = Astro.props;
 ---
 
 <section class="w-screen h-[120vh] relative animate-fade">
-  <slot />
+  <section class="flex place-content-center place-items-center h-full w-full">
+    <slot />
+
+    {
+      media === "video" && (
+        <video
+          src={src}
+          autoplay
+          muted
+          loop
+          playsinline
+          class="w-full h-full object-cover object-top clip-path-v"
+        />
+      )
+    }
+    {
+      media === "image" && (
+        <img
+          src={src}
+          alt="esland-intro"
+          class="w-full h-full object-cover object-top clip-path-v"
+        />
+      )
+    }
+  </section>
+
+  {
+    media === "video" && (
+      <video
+        src={src}
+        autoplay
+        muted
+        loop
+        playsinline
+        class="object-cover blur-3xl absolute -bottom-48 -z-10 h-full w-full"
+      />
+    )
+  }
+  {
+    media === "image" && (
+      <img
+        src={src}
+        alt="esland-info-hero"
+        class="object-cover blur-3xl absolute -bottom-48 -z-10 h-full w-full"
+      />
+    )
+  }
 </section>

@@ -7,40 +7,28 @@ const kits = [
   {
     name: "logotipo y trofeos",
     href: "https://premiosesland.com/ESLAND_MEDIA_KIT_2022.ra",
-    img: "/kit/logo-thropy.webp",
+    img: "/images/kit/logo-thropy.webp",
   },
   {
     name: "fondos de pantalla",
     href: "https://premiosesland.com/ESLAND_FONDOS.zip",
-    img: "/kit/wallpaper-esland.webp",
+    img: "/images/kit/wallpaper-esland.webp",
   },
   {
     name: "nota de prensa",
     href: "https://premiosesland.com/Nota%20Prensa-ESLAND.pdf",
-    img: "/kit/press-release.webp",
+    img: "/images/kit/press-release.webp",
   },
 ];
 ---
 
 <Layout titlePage="Información" description="Premios Esland">
-  <Hero>
-    <section class="h-full w-full flex justify-center items-center">
-      <h1
-        class="uppercase absolute z-10 lg:text-6xl text-5xl text-center font-tomaso tracking-widest -translate-y-14"
-      >
-        los premios esland
-      </h1>
-      <img
-        src="/info-bg.webp"
-        alt="esland-info-hero"
-        class="clip-path-v h-full object-cover object-center"
-      />
-    </section>
-    <img
-      src="/info-bg.webp"
-      alt="esland-info-hero"
-      class="object-cover blur-3xl absolute -bottom-36 -z-10 h-full w-full"
-    />
+  <Hero media="image" src="/info-bg.webp">
+    <h1
+      class="uppercase absolute z-10 lg:text-6xl text-5xl text-center font-tomaso tracking-widest -translate-y-14"
+    >
+      los premios esland
+    </h1>
   </Hero>
 
   <main class="section flex flex-col gap-24 max-w-[1400px]">

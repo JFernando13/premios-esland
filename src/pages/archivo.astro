@@ -1,8 +1,97 @@
 ---
+import Hero from "~/components/hero/Hero.astro";
+import LinkToAction from "~/components/shared/LinkToAction.astro";
+import { transformData } from "~/utils/editions";
 import Layout from "~/layouts/Layout.astro";
+
+import editions from "~/data/editions.json";
+import type { FinalistByCategory } from "~/types/editions";
+import FinalistCard from "~/components/palmares/FinalistCard.astro";
+
+const edition = 0;
+const categorySelected = "Streamer del año";
+
+const editionInfo = editions[edition];
+const winnersByCategory = transformData(
+  editions[edition].info.find(
+    (info) => info.categoria === categorySelected,
+  ) as FinalistByCategory,
+);
 ---
 
 <Layout
   titlePage="Archivo de las ediciones anteriores"
   description="Premios Esland"
-/>
+>
+  <Hero media="image" src="/file-bg.webp">
+    <div class="absolute z-20 gap-8 flex flex-col items-center -translate-y-20">
+      <h1
+        class="lg:text-6xl text-4xl text-center uppercase font-tomaso tracking-widest"
+      >
+        Ediciones anteriores
+      </h1>
+
+      <LinkToAction
+        text="revive la ultima gala"
+        class={"px-5 py-3 lg:text-2xl font-medium"}
+        href="https://www.youtube.com/watch?v=1YmpPrqKP-g"
+      />
+    </div>
+  </Hero>
+
+  <main class="section">
+    <!--
+      TODO: Tabs for each edition
+       <section>
+        <button>Primera Edicion</button>
+        <button>Segunda Edicion</button>
+      </section> 
+    -->
+
+    <section>
+      <h2
+        class="text-4xl md:text-6xl text-center uppercase font-tomaso mb-10 lg:mb-20"
+      >
+        palmarés
+      </h2>
+
+      <section
+        class="max-w-[686px] lg:max-w-[1308px] mx-auto flex justify-center gap-12 flex-wrap"
+      >
+        <!-- List of all winners -->
+        <article
+          class="flex flex-col gap-2 flex-1 min-w-80 xl:max-w-[350px] w-full"
+        >
+          {
+            editionInfo.info.map((info) => (
+              <button class="odd:bg-gradient-to-r odd:from-blue-600 odd:to-sky-400/45 bg-gradient-to-r from-gray-700 to-blue-900 flex justify-between px-4 py-0.5 rounded-sm winners">
+                <span class="text-sm">{info.categoria}</span>
+                <span class="text-xs font-bold">{info.ganador}</span>
+              </button>
+            ))
+          }
+        </article>
+
+        <!-- First and second winner by specificcategory -->
+        <article class="flex gap-4 items-end">
+          <FinalistCard
+            position={1}
+            edition={edition + 1}
+            finalist={winnersByCategory.first}
+          />
+          <FinalistCard
+            position={2}
+            edition={edition + 1}
+            finalist={winnersByCategory.second}
+          />
+        </article>
+      </section>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .winners:hover {
+    box-shadow: 0 0 10px 5px rgb(62, 159, 255);
+  }
+</style>
