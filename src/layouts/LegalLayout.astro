@@ -20,7 +20,7 @@ const { titlePage, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{titlePage} - Premios ESLAND 2024</title>
     <ViewTransitions />
-    <style>
+    <style is:global>
       @font-face {
         font-family: "Tomaso";
         font-style: normal;
@@ -40,12 +40,57 @@ const { titlePage, description } = Astro.props;
         background: #151a36;
         @apply font-onest;
       }
+
+      main {
+        @apply max-w-5xl mx-auto px-6 sm:px-20 mt-28 mb-24 flex flex-col gap-20;
+      }
+
+      h2 {
+        @apply text-wrap text-4xl font-semibold tracking-wide uppercase;
+      }
+
+      hgroup {
+        @apply text-pretty flex flex-col gap-6 w-full;
+      }
+
+      p {
+        @apply text-pretty font-extralight font-onest tracking-widest text-lg;
+      }
+
+      p a {
+        @apply font-bold;
+        transition: text-shadow 0.3s ease;
+      }
+
+      p a:hover {
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.8),
+          0 0 20px rgba(255, 255, 255, 0.8),
+          0 0 22px rgba(255, 255, 255, 0.8),
+          0 0 40px rgba(66, 220, 219, 0.8),
+          0 0 60px rgba(66, 220, 219, 0.8),
+          0 0 80px rgba(66, 220, 219, 0.5),
+          0 0 100px rgba(66, 220, 219, 0.5),
+          0 0 140px rgba(66, 220, 219, 0.5),
+          0 0 200px rgba(66, 220, 219, 0.5);
+      }
+
+      p strong {
+        @apply font-bold capitalize;
+      }
+
+      hgroup ul {
+        @apply list-disc flex flex-col gap-4 text-lg font-thin tracking-wide;
+      }
     </style>
   </head>
 
   <body>
     <Header />
-    <slot />
+
+    <main>
+      <slot />
+    </main>
 
     <Footer />
   </body>
