@@ -21,7 +21,7 @@ const twoFinalists = transformData(
   ) as EditionInfo,
 );
 
-let photosByEdition = gallery[edition].slice(0, 10);
+let photos = gallery[edition].slice(0, 10);
 ---
 
 <Layout
@@ -38,13 +38,13 @@ let photosByEdition = gallery[edition].slice(0, 10);
 
       <LinkToAction
         text="revive la ultima gala"
-        class={"px-5 py-3 lg:text-2xl font-medium"}
+        class={"px-5 py-3 text-xl lg:text-2xl font-medium"}
         href="https://www.youtube.com/watch?v=1YmpPrqKP-g"
       />
     </div>
   </Hero>
 
-  <main class="section flex flex-col gap-24">
+  <main class="section flex flex-col gap-48">
     <!--
       TODO: Tabs for each edition
        <section>
@@ -61,7 +61,7 @@ let photosByEdition = gallery[edition].slice(0, 10);
     />
 
     <!-- Galeria Section -->
-    <Gallery edition={edition} photosByEdition={photosByEdition} />
+    <Gallery edition={edition} photos={photos} />
 
     <!-- Metrics Section -->
     <Metrics metrics={editionInfo.metrics} />
