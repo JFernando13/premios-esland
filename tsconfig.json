@@ -1,14 +1,28 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/Users/juanfer/Dev/projects/clones/premios-esland",
     "paths": {
-      "~/components*": ["src/components*"],
-      "~/layouts*": ["src/layouts*"],
-      "~/pages*": ["src/pages*"],
-      "~/utils*": ["src/utils*"],
-      "~/data*": ["src/data*"],
-      "~/types*": ["src/types*"]
-    }
+      "~/components*": [
+        "src/components*"
+      ],
+      "~/layouts*": [
+        "src/layouts*"
+      ],
+      "~/pages*": [
+        "src/pages*"
+      ],
+      "~/utils*": [
+        "src/utils*"
+      ],
+      "~/data*": [
+        "src/data*"
+      ],
+      "~/types*": [
+        "src/types*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   }
 }
