@@ -1,0 +1,72 @@
+---
+import Section from "../shared/Section.astro";
+import { BtnLoadPhotos } from "./BtnLoadPhotos.tsx";
+
+interface Props {
+  edition: number;
+  photosByEdition: { width: number; height: number }[];
+}
+
+const { edition, photosByEdition } = Astro.props;
+---
+
+<Section title="galería" size="full">
+  <section class="columns-1 gap-x-6 md:columns-2 xl:columns-3">
+    <section class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
+      {
+        photosByEdition.map((photo, index) => (
+          <div
+            class="group hover:scale-105 hover:contrast-[110%] transition-all relative"
+            id="img-container"
+          >
+            <img
+              src={`/images/editions/${edition + 1}/gallery/thumbnails/img-${
+                index + 1
+              }.webp`}
+              alt="photo"
+              class="object-cover rounded-xl"
+              width={photo.width}
+              height={photo.height}
+            />
+            <img
+              src={`/images/editions/${edition + 1}/gallery/thumbnails/img-${
+                index + 1
+              }.webp`}
+              alt="photo"
+              class="blur-md opacity-0 group-hover:opacity-100 transition-all scale-115 -z-10 absolute inset-0 contrast-150 rounded-xl"
+            />
+          </div>
+        ))
+      }
+    </section>
+  </section>
+
+  <!-- TODO: Add functionality: Link to all photos -->
+  <BtnLoadPhotos
+    edition={edition}
+    offset={photosByEdition.length}
+    client:visible
+  />
+</Section>
+
+<style>
+  #img-container {
+    cursor: zoom-in;
+    animation: fade-up-images linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 20%;
+  }
+
+  @keyframes fade-up-images {
+    0% {
+      opacity: 0;
+      translate: 0 50px;
+      scale: 0.7;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
+    }
+  }
+</style>
