@@ -1,30 +1,31 @@
 ---
+import type { Photos } from "~/types/editions";
 import Section from "../shared/Section.astro";
 import { BtnLoadPhotos } from "./BtnLoadPhotos.tsx";
 
 interface Props {
   edition: number;
-  photosByEdition: { width: number; height: number }[];
+  photos: Photos[];
 }
 
-const { edition, photosByEdition } = Astro.props;
+const { edition, photos } = Astro.props;
 ---
 
 <Section title="galería" size="full">
   <section class="columns-1 gap-x-6 md:columns-2 xl:columns-3">
-    <section class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
+    <section
+      class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6"
+      id="gallery"
+    >
       {
-        photosByEdition.map((photo, index) => (
-          <div
-            class="group hover:scale-105 hover:contrast-[110%] transition-all relative"
-            id="img-container"
-          >
+        photos.map((photo, index) => (
+          <div class="group  img-container">
             <img
               src={`/images/editions/${edition + 1}/gallery/thumbnails/img-${
                 index + 1
               }.webp`}
               alt="photo"
-              class="object-cover rounded-xl"
+              class="first-img"
               width={photo.width}
               height={photo.height}
             />
@@ -33,7 +34,7 @@ const { edition, photosByEdition } = Astro.props;
                 index + 1
               }.webp`}
               alt="photo"
-              class="blur-md opacity-0 group-hover:opacity-100 transition-all scale-115 -z-10 absolute inset-0 contrast-150 rounded-xl"
+              class="second-img scale-100"
             />
           </div>
         ))
@@ -42,19 +43,25 @@ const { edition, photosByEdition } = Astro.props;
   </section>
 
   <!-- TODO: Add functionality: Link to all photos -->
-  <BtnLoadPhotos
-    edition={edition}
-    offset={photosByEdition.length}
-    client:visible
-  />
+  <BtnLoadPhotos edition={edition} offset={photos.length} client:visible />
 </Section>
 
-<style>
-  #img-container {
+<style is:global>
+  .img-container {
+    @apply hover:scale-105 hover:contrast-[110%] transition-all relative;
+
     cursor: zoom-in;
     animation: fade-up-images linear both;
     animation-timeline: view();
     animation-range: entry 10% cover 20%;
+  }
+
+  .first-img {
+    @apply object-cover rounded-xl w-full;
+  }
+
+  .second-img {
+    @apply blur-md opacity-0 group-hover:opacity-100 transition-all -z-10 absolute inset-0 contrast-150 rounded-xl w-full;
   }
 
   @keyframes fade-up-images {
