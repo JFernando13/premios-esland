@@ -1,0 +1,37 @@
+---
+import type { EditionInfo, TwoFinalists } from "~/types/editions";
+import FinalistCard from "./FinalistCard.astro";
+import Winners from "./Winners.astro";
+import Section from "../shared/Section.astro";
+
+interface Props {
+  editionInfo: EditionInfo[];
+  twoFinalists: TwoFinalists;
+  edition: number;
+}
+
+const { editionInfo, twoFinalists, edition } = Astro.props;
+---
+
+<Section title="palmarés" size="medium">
+  <section
+    class="max-w-[686px] lg:max-w-[1308px] mx-auto flex justify-center gap-12 flex-wrap"
+  >
+    <!-- List of all winners -->
+    <Winners winners={editionInfo as EditionInfo[]} />
+
+    <!-- First and second winner by specificcategory -->
+    <article class="flex gap-4 items-end">
+      <FinalistCard
+        position={1}
+        edition={edition + 1}
+        finalist={twoFinalists.first}
+      />
+      <FinalistCard
+        position={2}
+        edition={edition + 1}
+        finalist={twoFinalists.second}
+      />
+    </article>
+  </section>
+</Section>
