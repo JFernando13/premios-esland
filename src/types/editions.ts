@@ -18,6 +18,10 @@ export interface Metrics {
   media: number
 }
 
+export interface Photos {
+  width: number
+  height: number
+}
 
 export interface Editions {
   info: EditionInfo[]
