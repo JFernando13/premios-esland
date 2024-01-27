@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  metric: number;
+}
+const { title, metric } = Astro.props;
+---
+
+<hgroup class="flex flex-col justify-center items-center">
+  <p class="counter">{metric}</p>
+  <h3>{title}</h3>
+</hgroup>
+
+<style>
+  p {
+    @apply text-8xl font-bold tracking-tighter tabular-nums;
+    text-shadow: 0 0 10px rgba(197, 225, 255, 0.5);
+  }
+
+  h3 {
+    @apply uppercase opacity-70;
+  }
+</style>

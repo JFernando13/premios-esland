@@ -1,0 +1,19 @@
+---
+import type { Metrics } from "~/types/editions";
+import MetricsItem from "./MetricsItem.astro";
+import Section from "../shared/Section.astro";
+
+interface Props {
+  metrics: Metrics;
+}
+
+const { metrics } = Astro.props;
+---
+
+<Section title="los esland en numeros" size="medium">
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-y-10" id="metrics">
+    <MetricsItem title="de visualizaciones" metric={metrics.views} />
+    <MetricsItem title="noticias de prensa" metric={metrics.news} />
+    <MetricsItem title="en medios ganados" metric={metrics.media} />
+  </section>
+</Section>
