@@ -1,4 +1,4 @@
-export interface FinalistByCategory {
+export interface EditionInfo {
   categoria: string;
   ganador: string;
   foto1: string;
@@ -12,6 +12,18 @@ export interface FinalistByCategory {
   total2: number;
 }
 
+export interface Metrics {
+  views: number
+  news: number
+  media: number
+}
+
+
+export interface Editions {
+  info: EditionInfo[]
+  metrics: Metrics
+}
+
 export interface Finalist {
   name: string;
   category: string;
@@ -19,4 +31,9 @@ export interface Finalist {
   community: number;
   streamers: number;
   total: number;
+}
+
+export interface TwoFinalists {
+  first: Finalist;
+  second: Finalist;
 }
