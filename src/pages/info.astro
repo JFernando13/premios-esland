@@ -1,5 +1,5 @@
 ---
-import Hero from "~/components/hero/Hero.astro";
+import Hero from "~/components/shared/Hero.astro";
 import LinkToAction from "~/components/shared/LinkToAction.astro";
 import Layout from "~/layouts/Layout.astro";
 
@@ -23,7 +23,7 @@ const kits = [
 ---
 
 <Layout titlePage="Información" description="Premios Esland">
-  <Hero media="image" src="/info-bg.webp">
+  <Hero media="image" src="/images/backgrounds/info-bg.webp">
     <h1
       class="uppercase absolute z-10 lg:text-6xl text-5xl text-center font-tomaso tracking-widest -translate-y-14"
     >
@@ -50,7 +50,7 @@ const kits = [
       </hgroup>
 
       <img
-        src="theater.webp"
+        src="/images/info/theater.webp"
         alt="theater esland 2024"
         class="info-img"
         id="theater-img"
@@ -58,7 +58,7 @@ const kits = [
     </section>
     <section class="info-section" id="trophies">
       <img
-        src="trophies.webp"
+        src="/images/info/trophies.webp"
         alt="trophies esland 2024"
         class="info-img"
         id="trophies-img"

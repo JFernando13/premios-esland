@@ -1,5 +1,5 @@
 ---
-import Hero from "~/components/hero/Hero.astro";
+import Hero from "~/components/shared/Hero.astro";
 import LinkToAction from "~/components/shared/LinkToAction.astro";
 import { transformData } from "~/utils/editions";
 import Layout from "~/layouts/Layout.astro";
@@ -28,7 +28,7 @@ let photos = gallery[edition].slice(0, 10);
   titlePage="Archivo de las ediciones anteriores"
   description="Premios Esland"
 >
-  <Hero media="image" src="/file-bg.webp">
+  <Hero media="image" src="/images/backgrounds/archive-bg.webp">
     <div class="absolute z-20 gap-8 flex flex-col items-center -translate-y-20">
       <h1
         class="lg:text-6xl text-4xl text-center uppercase font-tomaso tracking-widest"
@@ -40,6 +40,7 @@ let photos = gallery[edition].slice(0, 10);
         text="revive la ultima gala"
         class={"px-5 py-3 text-xl lg:text-2xl font-medium"}
         href="https://www.youtube.com/watch?v=1YmpPrqKP-g"
+        target={"_blank"}
       />
     </div>
   </Hero>
