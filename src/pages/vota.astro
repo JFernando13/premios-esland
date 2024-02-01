@@ -1,5 +1,53 @@
 ---
+import ContentNoSession from "~/components/vote-page/content/ContentNoSession.astro";
 import Layout from "~/layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+import { VoteSystem } from "~/components/vote-page/content/VoteSystem";
+
+const session = await getSession(Astro.request);
+const bg = session ? "/vote-bg.webp" : "/vote-bg-no-session.webp";
 ---
 
-<Layout titlePage="Votación" description="Premios Esland" />
+<Layout titlePage="Votación" description="Premios Esland">
+  <main class="w-full flex flex-col">
+    <img
+      src=`/images/backgrounds/${bg}`
+      alt="vote background without session"
+      class="absolute -z-10 object-cover w-full h-screen aspect-auto top-0 bottom-0"
+    />
+    {
+      session ? (
+        <VoteSystem user={session.user ?? ({} as any)} client:load />
+      ) : (
+        <ContentNoSession />
+      )
+    }
+  </main>
+</Layout>
+
+<script>
+  const { signIn } = await import("auth-astro/client");
+  import { signOut } from "auth-astro/client";
+
+  const login = document.getElementById("login");
+  const logout = document.getElementById("logout");
+
+  if (login) {
+    login.addEventListener("click", async () => {
+      await signIn("twitch");
+    });
+  }
+
+  if (logout) {
+    logout.addEventListener("click", async () => {
+      await signOut();
+    });
+  }
+</script>
+
+<style>
+  li {
+    @apply flex gap-6 items-center text-wrap;
+  }
+</style>
+~/components/vote-page/content/VoteSystem
