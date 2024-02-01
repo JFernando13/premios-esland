@@ -1,0 +1,91 @@
+---
+import CheckPencilIcon from "~/components/icons/CheckPencilIcon.astro";
+import PodiumIcon from "~/components/icons/PodiumIcon.astro";
+import ShareIcon from "~/components/icons/ShareIcon.astro";
+import SortVoteIcon from "~/components/icons/SortVoteIcon.astro";
+import TapButtonIcon from "~/components/icons/TapButtonIcon.astro";
+import ThinkBrainIcon from "~/components/icons/ThinkBrainIcon.astro";
+---
+
+<section
+  class="flex flex-col gap-6 max-w-[1406px] mx-auto w-full pt-40 pb-16 px-8"
+>
+  <h1
+    class="uppercase text-left text-3xl lg:text-5xl font-bold tracking-wider leading-loose max-w-xl text-balance"
+  >
+    las votaciones ya estan aqui
+  </h1>
+
+  <button class="px-5 py-3 w-max text-lg lg:text-2xl link-action" id="login">
+    ¡empezar con las votaciones!
+  </button>
+
+  <!-- <SignIn client:only="react" provider={"twitch"}>
+    Empezar con las votaciones
+  </SignIn> -->
+
+  <p class="text-2xl max-w-3xl">
+    Ha llegado el momento más importante. <strong
+      >Votar en la 3ª Edición de los Premios.</strong
+    > Para que tus votos se contabilicen de forma correcta, te dejamos algunos consejos:
+  </p>
+
+  <ul class="flex flex-col gap-10 text-2xl font-extralight">
+    <li>
+      <SortVoteIcon />
+      <span>
+        vota, por orden de preferencia, hasta 4 nominados por categoría.
+      </span>
+    </li>
+    <li>
+      <CheckPencilIcon />
+      <span>no es obligatorio votar en cada categoria</span>
+    </li>
+    <li>
+      <PodiumIcon />
+      <span
+        >no es obligatorio pero si se recomienda el uso del voto rankeado
+      </span>
+    </li>
+    <li>
+      <TapButtonIcon />
+      <span
+        >una vez tengas clara tu elección, asegurate de pulsar "enviar mis
+        votos"</span
+      >
+    </li>
+    <li>
+      <ShareIcon />
+      <span>recuerda compartir tus votos en redes sociales</span>
+    </li>
+    <li>
+      <ThinkBrainIcon />
+      <span
+        >elige sabiamente y revisa tus votos, solo tienes una oportunidad</span
+      >
+    </li>
+  </ul>
+</section>
+
+<style>
+  .link-action {
+    @apply uppercase border-white border-[1px] rounded-full;
+  }
+  .link-action {
+    transition: all 0.3s ease-out;
+  }
+
+  .link-action:hover {
+    box-shadow: 0 0 16px #fff8;
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 22px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(66, 220, 219, 0.8),
+      0 0 60px rgba(66, 220, 219, 0.8),
+      0 0 80px rgba(66, 220, 219, 0.5),
+      0 0 100px rgba(66, 220, 219, 0.5),
+      0 0 140px rgba(66, 220, 219, 0.5),
+      0 0 200px rgba(66, 220, 219, 0.5);
+  }
+</style>
