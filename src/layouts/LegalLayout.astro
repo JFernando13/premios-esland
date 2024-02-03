@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import Footer from "~/components/footer/Footer.astro";
-import Header from "~/components/hero/Header.astro";
+import Footer from "~/components/global/footer/Footer.astro";
+import NavBar from "~/components/global/navbar/NavBar.astro";
 
 interface Props {
   titlePage: string;
@@ -86,7 +86,7 @@ const { titlePage, description } = Astro.props;
   </head>
 
   <body>
-    <Header />
+    <NavBar />
 
     <main>
       <slot />
