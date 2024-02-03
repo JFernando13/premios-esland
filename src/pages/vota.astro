@@ -1,8 +1,8 @@
 ---
-import ContentNoSession from "~/components/vote-page/content/ContentNoSession.astro";
+import ContentNoSession from "~/components/vote-page/vote-instructions/VoteInstructions.astro";
 import Layout from "~/layouts/Layout.astro";
 import { getSession } from "auth-astro/server";
-import { VoteSystem } from "~/components/vote-page/content/VoteSystem";
+import { VoteSystem } from "~/components/vote-page/vote-system/VoteSystem";
 
 const session = await getSession(Astro.request);
 const bg = session ? "/vote-bg.webp" : "/vote-bg-no-session.webp";
@@ -17,7 +17,7 @@ const bg = session ? "/vote-bg.webp" : "/vote-bg-no-session.webp";
     />
     {
       session ? (
-        <VoteSystem user={session.user ?? ({} as any)} client:load />
+        <VoteSystem client:load user={session.user ?? ({} as any)} />
       ) : (
         <ContentNoSession />
       )
@@ -50,4 +50,3 @@ const bg = session ? "/vote-bg.webp" : "/vote-bg-no-session.webp";
     @apply flex gap-6 items-center text-wrap;
   }
 </style>
-~/components/vote-page/content/VoteSystem
