@@ -14,3 +14,11 @@ export interface TCandidatesByCategory {
   categoryName: string
   candidates: TCandidate[]
 }
+
+export interface TVotes {
+  all: string[][],
+  byCategory: string[],
+  hasMissingVotes?: boolean | null,
+  maxVotes: number
+  handleVote: ({ candidateID }: { candidateID: string }) => void
+}
