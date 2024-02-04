@@ -1,0 +1,30 @@
+.img-container {
+  @apply hover:scale-105 hover:contrast-[110%] transition-all relative;
+
+  cursor: zoom-in;
+  animation: fade-up-images linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 20%;
+}
+
+.first-img {
+  @apply object-cover rounded-xl w-full;
+}
+
+.second-img {
+  @apply blur-md opacity-0 group-hover:opacity-100 transition-all -z-10 absolute inset-0 contrast-150 rounded-xl w-full;
+}
+
+@keyframes fade-up-images {
+  0% {
+    opacity: 0;
+    translate: 0 50px;
+    scale: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}

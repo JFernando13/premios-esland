@@ -1,0 +1,12 @@
+.numberMetric {
+  @apply text-8xl font-bold tracking-tighter tabular-nums;
+  text-shadow: 0 0 10px rgba(197, 225, 255, 0.5);
+}
+
+.titleMetric {
+  @apply uppercase opacity-70;
+}
+
+.containerMetric {
+  @apply flex flex-col justify-center items-center
+}

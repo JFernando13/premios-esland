@@ -1,0 +1,11 @@
+.winners {
+  @apply transition-all
+}
+
+.winners:hover {
+  box-shadow: 0 0 10px 5px rgb(62, 159, 255);
+}
+
+.selected {
+  box-shadow: 0 0 10px 5px rgb(62, 159, 255);
+}

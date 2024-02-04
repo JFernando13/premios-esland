@@ -1,0 +1,26 @@
+@keyframes caerDesvanecer {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+    @apply blur-lg
+  }
+  
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-200px, 300px) rotate(90deg);
+    opacity: 0;
+    @apply blur-lg
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+    opacity: 1;
+  }
+}
+.animationFail {
+  transition: all .5s ease-in-out;
+  animation: caerDesvanecer 1.8s ease-out;
+}
