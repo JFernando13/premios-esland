@@ -17,7 +17,7 @@ export function VoteSystem({ user }: Props) {
   } = useVoteSystem()
 
   return (
-    <main class="max-w-7xl w-full mx-auto mt-28 mb-28 flex flex-col gap-8 px-4">
+    <section class="max-w-7xl w-full flex flex-col gap-8">
       {
         page.current > page.total
           ? <VoteFinal
@@ -46,6 +46,6 @@ export function VoteSystem({ user }: Props) {
             </>
           )
       }
-    </main>
+    </section>
   )
 }

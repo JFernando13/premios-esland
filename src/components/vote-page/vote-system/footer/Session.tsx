@@ -3,6 +3,7 @@ import { type TUser } from "~/types/session"
 interface Props {
   user: TUser
 }
+
 export function Session({ user }: Props) {
   return (
     <section class="flex gap-4 flex-1">

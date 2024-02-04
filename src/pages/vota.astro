@@ -9,11 +9,11 @@ const bg = session ? "/vote-bg.webp" : "/vote-bg-no-session.webp";
 ---
 
 <Layout titlePage="Votación" description="Premios Esland">
-  <main class="w-full flex flex-col">
+  <main class="flex justify-center items-center relative min-h-screen">
     <img
       src=`/images/backgrounds/${bg}`
       alt="vote background without session"
-      class="absolute -z-10 object-cover w-full h-screen aspect-auto top-0 bottom-0"
+      class="object-cover absolute -z-10 h-full object-center"
     />
     {
       session ? (
@@ -38,8 +38,10 @@ const bg = session ? "/vote-bg.webp" : "/vote-bg-no-session.webp";
     });
   }
 
+  console.log(logout);
   if (logout) {
     logout.addEventListener("click", async () => {
+      console.log("HOla");
       await signOut();
     });
   }
