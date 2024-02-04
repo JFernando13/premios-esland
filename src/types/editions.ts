@@ -1,4 +1,4 @@
-export interface EditionInfo {
+export interface FinalistOld {
   categoria: string;
   ganador: string;
   foto1: string;
@@ -23,8 +23,9 @@ export interface Photos {
   height: number
 }
 
-export interface Editions {
-  info: EditionInfo[]
+export interface EditionInfo {
+  info: FinalistOld[]
+  name: string
   metrics: Metrics
 }
 

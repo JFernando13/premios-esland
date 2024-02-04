@@ -1,6 +1,6 @@
-import type { EditionInfo } from "~/types/editions";
+import type { EditionInfo, FinalistOld, TwoFinalists } from "~/types/editions";
 
-export function transformData(data: EditionInfo) {
+export function transformData(data: FinalistOld): TwoFinalists {
   const transformedData = {
     first: {
       category: data.categoria,
