@@ -1,27 +1,8 @@
 ---
 import Hero from "~/components/shared/Hero.astro";
 import LinkToAction from "~/components/shared/LinkToAction.astro";
-import { transformData } from "~/utils/editions";
 import Layout from "~/layouts/Layout.astro";
-
-import editions from "~/data/editions.json";
-import gallery from "~/data/gallery.json";
-import type { EditionInfo } from "~/types/editions";
-import Palmares from "~/components/archive-page/palmares/Palmares.astro";
-import Gallery from "~/components/archive-page/gallery/Gallery.astro";
-import Metrics from "~/components/archive-page/metrics/Metrics.astro";
-
-const edition = 0;
-const categorySelected = "Streamer del año";
-
-const editionInfo = editions[edition];
-const twoFinalists = transformData(
-  editions[edition].info.find(
-    (info) => info.categoria === categorySelected,
-  ) as EditionInfo,
-);
-
-let photos = gallery[edition].slice(0, 10);
+import { Main } from "~/components/archive-page/Main";
 ---
 
 <Layout
@@ -46,26 +27,7 @@ let photos = gallery[edition].slice(0, 10);
   </Hero>
 
   <main class="section flex flex-col gap-48">
-    <!--
-      TODO: Tabs for each edition
-       <section>
-        <button>Primera Edicion</button>
-        <button>Segunda Edicion</button>
-      </section> 
-    -->
-
-    <!-- Palmares Section -->
-    <Palmares
-      twoFinalists={twoFinalists}
-      edition={edition}
-      editionInfo={editionInfo.info as EditionInfo[]}
-    />
-
-    <!-- Galeria Section -->
-    <Gallery edition={edition} photos={photos} />
-
-    <!-- Metrics Section -->
-    <Metrics metrics={editionInfo.metrics} />
+    <Main client:load />
   </main>
 </Layout>
 
