@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/Users/juanfer/Dev/projects/clones/premios-esland",
+    "baseUrl": "./",
     "paths": {
       "~/components/*": [
         "src/components/*"
