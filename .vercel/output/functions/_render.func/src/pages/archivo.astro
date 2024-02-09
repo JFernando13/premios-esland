@@ -1,0 +1,81 @@
+---
+import Hero from "~/components/shared/Hero.astro";
+import LinkToAction from "~/components/shared/LinkToAction.astro";
+import Layout from "~/layouts/Layout.astro";
+import { Main } from "~/components/archive-page/Main";
+---
+
+<Layout
+  titlePage="Archivo de las ediciones anteriores"
+  description="Premios Esland"
+>
+  <Hero media="image" src="/images/backgrounds/archive-bg.webp">
+    <div class="absolute z-20 gap-8 flex flex-col items-center -translate-y-20">
+      <h1
+        class="lg:text-6xl text-4xl text-center uppercase font-tomaso tracking-widest"
+      >
+        Ediciones anteriores
+      </h1>
+
+      <LinkToAction
+        text="revive la ultima gala"
+        class={"px-5 py-3 text-xl lg:text-2xl font-medium"}
+        href="https://www.youtube.com/watch?v=1YmpPrqKP-g"
+        target={"_blank"}
+      />
+    </div>
+  </Hero>
+
+  <main class="section flex flex-col gap-48">
+    <Main client:load />
+  </main>
+</Layout>
+
+<script>
+  const counters = document.querySelectorAll(
+    ".counter",
+  ) as NodeListOf<HTMLParagraphElement>;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          counterProgressive();
+          observer.disconnect();
+        }
+      });
+    },
+    {
+      rootMargin: "10px",
+    },
+  );
+
+  observer.observe(document.getElementById("metrics")!);
+
+  function counterProgressive() {
+    counters.forEach((counter) => {
+      const end = parseFloat(counter.textContent ?? "0");
+      const decimals = counter.textContent?.split(".")[1]?.length ?? 0;
+
+      let startTime = 0;
+      const duration = 1800;
+      const start = 0;
+
+      function updateCounter(timestamp: number) {
+        if (!startTime) startTime = timestamp;
+
+        const progress = timestamp - startTime;
+        const percentage = Math.min(progress / duration, 1);
+        const value = (start + percentage * (end - start)).toFixed(decimals);
+
+        counter.innerText = value;
+
+        if (percentage < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }
+</script>

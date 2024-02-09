@@ -1,0 +1,63 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/api\\/auth(?:\\/(.*?))?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/api\\/candidates\\.json\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/api\\/gallery\\.json\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/api\\/votes\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/archivo\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/aviso-legal\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/cookies\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/info\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/privacidad\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/vota\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
+		}
+	]
+}
