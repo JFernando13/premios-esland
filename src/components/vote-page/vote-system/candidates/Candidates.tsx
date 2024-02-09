@@ -1,4 +1,4 @@
-import type { TCandidate, TCandidatesByCategory, TVotes } from "~/types/candidates"
+import type { TCandidate, TVotes } from "~/types/candidates"
 import { Candidate } from "./Candidate"
 
 interface Props {
