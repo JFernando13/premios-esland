@@ -1,4 +1,4 @@
-import type { FinalistOld, TwoFinalists } from "~/types/editions";
+import type { FinalistOld, TwoFinalists } from "~/types/editions.ts";
 
 export function transformData(data: FinalistOld): TwoFinalists {
   const transformedData = {
