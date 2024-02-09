@@ -3,23 +3,26 @@
   "compilerOptions": {
     "baseUrl": "/Users/juanfer/Dev/projects/clones/premios-esland",
     "paths": {
-      "~/components*": [
-        "src/components*"
+      "~/components/*": [
+        "src/components/*"
       ],
-      "~/layouts*": [
-        "src/layouts*"
+      "~/layouts/*": [
+        "src/layouts/*"
       ],
-      "~/pages*": [
-        "src/pages*"
+      "~/pages/*": [
+        "src/pages/*"
       ],
-      "~/utils*": [
-        "src/utils*"
+      "~/utils/*": [
+        "src/utils/*"
       ],
-      "~/data*": [
-        "src/data*"
+      "~/data/*": [
+        "src/data/*"
       ],
-      "~/types*": [
-        "src/types*"
+      "~/types/*": [
+        "src/types/*"
+      ],
+      "~/*": [
+        "src/*"
       ]
     },
     "jsx": "react-jsx",
