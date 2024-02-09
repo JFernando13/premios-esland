@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { getSession } from "auth-astro/server";
-import { addVotesToDB, cleanVotes } from "src/db/client";
-import { sql } from "src/db/client";
+import { addVotesToDB, cleanVotes } from "~/db/client";
+import { sql } from "~/db/client";
 
 export const GET: APIRoute = async () => {
   let votes: string[][] = []
